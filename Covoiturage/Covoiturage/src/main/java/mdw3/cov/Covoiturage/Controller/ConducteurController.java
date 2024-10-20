@@ -17,14 +17,12 @@ public class ConducteurController {
     @Autowired
     private ConducteurRepository conducteurRepository;
 
-    // Create a new Conducteur
     @PostMapping
     public ResponseEntity<Conducteur> createConducteur(@RequestBody Conducteur conducteur) {
         Conducteur newConducteur = conducteurRepository.save(conducteur);
         return new ResponseEntity<>(newConducteur, HttpStatus.CREATED);
     }
 
-    // Get a Conducteur by ID
     @GetMapping("/{id}")
     public ResponseEntity<Conducteur> getConducteurById(@PathVariable Long id) {
         Optional<Conducteur> conducteur = conducteurRepository.findById(id);
@@ -35,14 +33,12 @@ public class ConducteurController {
         }
     }
 
-    // Get all Conducteurs
     @GetMapping
     public ResponseEntity<List<Conducteur>> getAllConducteurs() {
         List<Conducteur> conducteurs = conducteurRepository.findAll();
         return new ResponseEntity<>(conducteurs, HttpStatus.OK);
     }
 
-    // Update a Conducteur
     @PutMapping("/{id}")
     public ResponseEntity<Conducteur> updateConducteur(@PathVariable Long id, @RequestBody Conducteur updatedConducteur) {
         Optional<Conducteur> existingConducteur = conducteurRepository.findById(id);
@@ -59,7 +55,6 @@ public class ConducteurController {
         }
     }
 
-    // Delete a Conducteur
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteConducteur(@PathVariable Long id) {
         if (conducteurRepository.existsById(id)) {

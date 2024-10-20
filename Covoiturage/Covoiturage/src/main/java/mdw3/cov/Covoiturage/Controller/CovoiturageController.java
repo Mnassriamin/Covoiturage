@@ -25,7 +25,6 @@ public class CovoiturageController {
     // Create a new trip (Trajet)
     @PostMapping("/trajet")
     public ResponseEntity<?> proposerTrajet(@RequestBody Trajet trajet) {
-        // Remove the ID check because a new `Trajet` will not have an ID yet
         return new ResponseEntity<>(trajetRepository.save(trajet), HttpStatus.CREATED);
     }
 

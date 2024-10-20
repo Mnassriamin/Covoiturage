@@ -8,6 +8,7 @@ class CovoiturageApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
